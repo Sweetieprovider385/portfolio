@@ -17,7 +17,7 @@ export const Skills = () => {
       className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden py-20"
     >
       <SkillText />
-
+      {/* Removed any static or combined skill icons image here */}
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
         {SKILL_DATA.map((skill, i) => (
           <SkillDataProvider
@@ -30,7 +30,6 @@ export const Skills = () => {
           />
         ))}
       </div>
-
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
         {FRONTEND_SKILL.map((skill, i) => (
           <SkillDataProvider
@@ -55,18 +54,16 @@ export const Skills = () => {
           />
         ))}
       </div>
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
-        {FULLSTACK_SKILL.map((skill, i) => (
-          <SkillDataProvider
-            key={skill.skill_name}
-            src={skill.image}
-            name={skill.skill_name}
-            width={skill.width}
-            height={skill.height}
-            index={i}
-          />
-        ))}
-      </div>
+      {FULLSTACK_SKILL.map((skill, i) => (
+        <SkillDataProvider
+          key={skill.skill_name}
+          src={skill.image}
+          name={skill.skill_name}
+          width={skill.width}
+          height={skill.height}
+          index={i}
+        />
+      ))}
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
         {OTHER_SKILL.map((skill, i) => (
           <SkillDataProvider
@@ -79,7 +76,6 @@ export const Skills = () => {
           />
         ))}
       </div>
-
       <div className="w-full h-full absolute">
         <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
           <video

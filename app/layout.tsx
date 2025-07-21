@@ -5,6 +5,7 @@ import type { PropsWithChildren } from "react";
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
 import { StarsCanvas } from "@/components/main/star-background";
+import ReviewCarousel from "@/components/main/ReviewCarousel";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <StarsCanvas />
         <Navbar />
         {children}
+        <ReviewCarousel />
         <Footer />
       </body>
     </html>

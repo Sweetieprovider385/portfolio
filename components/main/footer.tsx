@@ -1,38 +1,48 @@
-import Link from "next/link";
+'use client';
 
-import { FOOTER_DATA } from "@/constants";
+import Link from "next/link";
+import { FaGithub, FaFileAlt, FaUser } from 'react-icons/fa';
 
 export const Footer = () => {
   return (
-    <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px]">
-      <div className="w-full flex flex-col items-center justify-center m-auto">
-        <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
-          {FOOTER_DATA.map((column) => (
-            <div
-              key={column.title}
-              className="min-w-[200px] h-auto flex flex-col items-center justify-start"
-            >
-              <h3 className="font-bold text-[16px]">{column.title}</h3>
-              {column.data.map(({ icon: Icon, name, link }) => (
-                <Link
-                  key={`${column.title}-${name}`}
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="flex flex-row items-center my-[15px]"
-                >
-                  {Icon && <Icon />}
-                  <span className="text-[15px] ml-[6px]">{name}</span>
-                </Link>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        <div className="mb-[20px] text-[15px] text-center">
-          &copy; John Doe {new Date().getFullYear()} Inc. All rights reserved.
-        </div>
+    <footer className="w-full px-2 py-6 bg-gradient-to-t from-[#181a23] via-[#23233b] to-transparent border-t-2 border-cyan-400/20 shadow-[0_-2px_32px_0_rgba(0,212,255,0.10)] flex flex-col items-center">
+      <div className="flex flex-row flex-wrap items-center justify-center gap-8 mb-2">
+        <Link
+          href="mailto:sweetieprovider@gmail.com"
+          className="group flex items-center gap-2 text-cyan-300 hover:text-white transition-all duration-300 text-lg font-semibold drop-shadow-glow"
+        >
+          {/* No icon, just the link */}
+        </Link>
+        <Link
+          href="https://github.com/sweetieprovider385"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-2 text-cyan-300 hover:text-white transition-all duration-300 text-lg font-semibold drop-shadow-glow"
+        >
+          <FaGithub className="text-2xl group-hover:animate-pulse" />
+          <span className="hidden sm:inline">GitHub</span>
+        </Link>
+        <Link
+          href="/resume"
+          className="group flex items-center gap-2 text-cyan-300 hover:text-white transition-all duration-300 text-lg font-semibold drop-shadow-glow"
+        >
+          <FaFileAlt className="text-2xl group-hover:animate-bounce" />
+          <span className="hidden sm:inline">View CV</span>
+        </Link>
+        <Link
+          href="/contact"
+          className="group flex items-center gap-2 text-cyan-300 hover:text-white transition-all duration-300 text-lg font-semibold drop-shadow-glow"
+        >
+          <FaUser className="text-2xl group-hover:animate-bounce" />
+          <span className="hidden sm:inline">Contact</span>
+        </Link>
       </div>
-    </div>
+      <div className="w-full flex justify-center">
+        <div className="h-1 w-2/3 bg-gradient-to-r from-cyan-400/30 via-blue-400/10 to-purple-500/30 rounded-full blur-sm mb-2" />
+      </div>
+      <div className="text-center text-gray-400 text-sm tracking-wide mt-2">
+        &copy; Morimura Din {new Date().getFullYear()} Inc. All rights reserved.
+      </div>
+    </footer>
   );
 };
